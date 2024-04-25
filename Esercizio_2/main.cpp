@@ -2,8 +2,6 @@
 #include<chrono>
 #include<unistd.h>
 #include<vector>
-#include<numeric>
-#include<algorithm>
 #include <random>
 #include"src/SortingAlgorithm.hpp"
 
@@ -34,9 +32,12 @@ int main()
 {
     double Somma1=0;
     double Somma2=0;
-    int lunghezza=10;
-    int n=5;
-    cout<<"Lunghezza vettore "<<lunghezza<<endl;
+    int lunghezza;
+    cout<<"Inserire lunghezza: ";
+    cin>>lunghezza;
+    int n;
+    cout<<"Inserire numero di test da eseguire: ";
+    cin>>n;
     vector<int> v(lunghezza);
     for (int i = 0; i < n; ++i) {
         mt19937 rng(random_device{}());
@@ -50,8 +51,8 @@ int main()
         Somma1=Somma1+BubbleTime(v);
         Somma2=Somma2+MergeTime(v);
     }
-    cout<<"La media dei tempi di BubbleSort: "<<Somma1/n<<" millisecondi"<<endl;
-    cout<<"La media dei tempi di MergeSort: "<<Somma2/n<<" millisecondi"<<endl;
+    cout<<"Media dei tempi di BubbleSort: "<<Somma1/n<<" millisecondi"<<endl;
+    cout<<"Media dei tempi di MergeSort: "<<Somma2/n<<" millisecondi"<<endl;
 
     return 0;
 }
